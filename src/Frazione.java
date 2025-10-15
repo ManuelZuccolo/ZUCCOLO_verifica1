@@ -84,6 +84,20 @@ public class Frazione implements Operando
         return denC;
     }
 
+    public Frazione semplifica(Frazione f)
+    {
+        int i = 2;
+        while(i < 20)
+        {
+            if(f.numeratore%i==0 && f.denominatore%i==0)
+            {
+                f.numeratore = f.numeratore/i;
+                f.denominatore = f.denominatore/i;
+            }
+        }
+        return f;
+    }
+
     public void somma(Frazione f2) throws DenominatoreNulloException
     {
 
@@ -108,6 +122,16 @@ public class Frazione implements Operando
         numF = ((denC/this.denominatore)*this.numeratore) - ((denC/f2.denominatore)*f2.numeratore);
 
         f3 = new Frazione(numF, denC);
+        f3.stampa();
+    }
+
+    public void moltiplicazione(Frazione f2)  throws DenominatoreNulloException
+    {
+        int num = this.numeratore * f2.numeratore;
+        int den= this.denominatore *  f2.denominatore;
+
+        Frazione f3 = new Frazione(num, den);
+        semplifica(f3);
         f3.stampa();
     }
 }
