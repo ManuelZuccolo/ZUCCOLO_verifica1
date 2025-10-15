@@ -17,14 +17,26 @@ public class Main {
         System.out.println("Inserrie valore del denominatore: ");
         den = sc.nextInt();
 
+        Frazione fr;
         try
         {
-            Frazione fr =  new Frazione(num, den);
+            fr =  new Frazione(num, den);
 
         }catch(DenominatoreNulloException e)
         {
             System.out.println("Errore" + e.getMessage());
+
         }
+        if(den == 0)
+        {
+            do{
+                System.out.println("Inserrie valore del denominatore: ");
+                den = sc.nextInt();
+            }while(den == 0);
+        }
+        fr= new Frazione(num, den);
+
+        System.out.println("Valore della frazione: " + fr.calcola());
 
 
 
