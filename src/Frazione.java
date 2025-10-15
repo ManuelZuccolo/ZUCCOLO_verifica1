@@ -98,4 +98,16 @@ public class Frazione implements Operando
         f3 = new Frazione(numF, denC);
         f3.stampa();
     }
+
+    public void sottrazione(Frazione f2) throws DenominatoreNulloException
+    {
+        Frazione f3;
+        int numF;
+        int denC = trovaBaseComue(this, f2);
+
+        numF = ((denC/this.denominatore)*this.numeratore) - ((denC/f2.denominatore)*f2.numeratore);
+
+        f3 = new Frazione(numF, denC);
+        f3.stampa();
+    }
 }
