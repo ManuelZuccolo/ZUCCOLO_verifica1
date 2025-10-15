@@ -29,13 +29,13 @@ public class Frazione implements Operando
     @Override
     public double calcola()
     {
-        return 0;
+        return this.numeratore / this.denominatore;
     }
 
     @Override
     public String toString()
     {
-        return "Frazione";
+        return " " + this.numeratore + "\n" + "____" + "\n" + " " + this.denominatore;
     }
 
     //funzioni cancro
@@ -99,7 +99,7 @@ public class Frazione implements Operando
         return f;
     }
 
-    public Frazione inversione(Frazione f)
+    public Frazione inversione(Frazione f) //Yokoso, sakasama sekai ni
     {
         try
         {
