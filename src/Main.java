@@ -40,6 +40,8 @@ public class Main {
         System.out.println("Frazione inserita: " + fr.stampa());
         System.out.println("Valore della frazione: " + fr.calcola());
 
+        System.out.println("Versione bella: \n" + fr.toString());
+
 
 
 
