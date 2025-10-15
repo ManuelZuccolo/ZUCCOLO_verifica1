@@ -23,8 +23,7 @@ public class Frazione implements Operando
     @Override
     public void stampa()
     {
-
-
+        System.out.println(this.numeratore + "/" + this.denominatore);
     }
 
     @Override
@@ -37,5 +36,66 @@ public class Frazione implements Operando
     public String toString()
     {
         return "Frazione";
+    }
+
+    public int trovaBaseComue(Frazione f1, Frazione f2)
+    {
+        int[] numeri = {2,3,5,7,11};
+        int denC = 0;
+
+        //Controlli che mi hanno fatto impazzire
+        if(f1.denominatore%f2.denominatore==0)
+        {
+            denC = f1.denominatore;
+        }else if(f2.denominatore%f1.denominatore==0)
+        {
+            denC = f2.denominatore;
+        }else//Se non sonno contenibili uno nell'altro fa questo casino, spro sia corretto
+        {
+            int mag, min;//Trovo il maggiroe dei due per poterlo moltpliccare e capire wquak'è il coso comune
+            if(f1.denominatore > f2.denominatore)
+            {
+                mag = f1.denominatore;
+                min = f2.denominatore;
+            }
+            else
+            {
+                mag = f2.denominatore;
+                min = f1.denominatore;
+            }
+            int i = 0;
+
+            while(denC == 0 && i < numeri.length)
+            {
+                if((mag*i)%min==0)
+                {
+                    denC = mag*i;
+                }
+                i++;
+            }
+
+            if(denC == 0)
+            {
+                System.out.println("Il denomeratore comune era troppo alto. \nTi supplico cambia i denominatori sennò il mio programma piange");
+            }
+        }
+        //o è uno dei due se è divisibile per l'altro OPPURE un multiplo di entrambi
+
+        return denC;
+    }
+
+    public void somma(Frazione f2) throws DenominatoreNulloException
+    {
+
+        Frazione f3;
+
+        int numF;
+        int denC = trovaBaseComue(this, f2);
+
+
+        numF = ((denC/this.denominatore)*this.numeratore) + ((denC/f2.denominatore)*f2.numeratore);
+
+        f3 = new Frazione(numF, denC);
+        f3.stampa();
     }
 }
