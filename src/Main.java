@@ -33,9 +33,11 @@ public class Main {
                 System.out.println("Inserrie valore del denominatore: ");
                 den = sc.nextInt();
             }while(den == 0);
-        }
-        fr= new Frazione(num, den);
 
+            fr.denominatore = den;
+        }
+
+        System.out.println("Frazione inserita: " + fr.stampa());
         System.out.println("Valore della frazione: " + fr.calcola());
 
 

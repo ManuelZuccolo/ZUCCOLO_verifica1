@@ -2,7 +2,7 @@ public class Frazione implements Operando
 {
     //Attributi
     private int numeratore;
-    private int denominatore;
+    public int denominatore;
 
     //Costruttori
     //Maidenless
